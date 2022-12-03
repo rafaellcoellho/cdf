@@ -13,14 +13,14 @@ Instalar versão do python. Eu utilizo o [asdf](https://asdf-vm.com/), com o plu
 $ asdf install python 3.10.4
 ```
 
-O arquivo `.tool-versions` vai reconhecer que nessa pasta utilizamos a versão correta:
+O arquivo `.tool-versions` vai reconhecer que nessa pasta utilizo a versão correta:
 
 ```
 $ python --version
 Python 3.10.4
 ```
 
-Crio e iniciar o ambiente virtual:
+Para criar e iniciar o ambiente virtual:
 
 ```
 $ virtualenv venv
