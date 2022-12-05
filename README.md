@@ -66,7 +66,7 @@ pip-compile --upgrade-package <pacote>==<versao>
 ```
 
 Caso seja necessário fazer upgrade do pacote para uma versão específica, basta
-emitir `=<versao>`.
+omitir `=<versao>`.
 
 #### Como rodar testes
 
