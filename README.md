@@ -2,7 +2,7 @@
 
 Minha caixa de ferramentas (cdf), um conjunto de mini aplicativos para ajudar no dia a dia.
 
-# Desenvolvimento
+## Desenvolvimento
 
 #### Configurando ambiente local
 
@@ -28,17 +28,45 @@ $ virtualenv venv
 $ . venv/bin/activate
 ```
 
-Instalar as dependências de desenvolvimento:
-
-```
-$ pip install -r requirements-dev.txt
-```
-
 Instalar a configuração do pre-commit:
 
 ```
 $ pre-commit install
 ```
+
+Para gerenciar as dependências do projeto eu utilizo o
+[pip-tools](https://github.com/jazzband/pip-tools), sendo assim:
+
+```
+$ pip install --upgrade pip-tools pip setuptools
+```
+
+Agora só instala as dependencias usando pip:
+
+```
+$ pip install -r dependencias/requirements.txt -r dependencias/requirements-dev.txt
+```
+
+Para fazer o upgrade de todas as libs do projeto:
+
+```
+pip-compile \
+  --upgrade \
+  --resolver=backtracking \
+  --generate-hashes \
+  --output-file dependencias/requirements.txt \
+  dependencias/requiremetns.in
+```
+
+Obviamente, para fazer o mesmo para libs de desenvolvimento, basta mudar o nome
+do arquivo. Para fazer o upgrade de uma dependência específica:
+
+```
+pip-compile --upgrade-package <pacote>==<versao>
+```
+
+Caso seja necessário fazer upgrade do pacote para uma versão específica, basta
+omitir `=<versao>`.
 
 #### Como rodar testes
 
